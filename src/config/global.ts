@@ -19,4 +19,10 @@ export const GLOBAL: GlobalConfig = {
             lang: 'en',
         },
     },
+    auth: {  
+        isLoggedIn: true,  
+        redirectUrl: '',  
+        loginPageUrl: '/login'  
+        }  
+
 };

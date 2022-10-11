@@ -16,6 +16,9 @@ import { CachePreventionInterceptor } from '@eui/core';
 import { CorsSecurityInterceptor } from '@eui/core';
 import { AddLangParamInterceptor } from '@eui/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { appConfig } from '../config/index';
+import { AUTH_CONFIG_TOKEN } from './services/auth.service';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -33,6 +36,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     EuiNotificationsModule,
   ],
   providers: [
+    AuthService,
+    {
+      provide: AUTH_CONFIG_TOKEN,
+      useValue: { authConfig: appConfig.auth }
+  },
+  
         {
             provide: HTTP_INTERCEPTORS,
             useClass: CachePreventionInterceptor,
